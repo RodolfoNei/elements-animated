@@ -2,7 +2,17 @@
 from manim import *
 config.background_color = WHITE
 
-class PropI(Scene):
+class ProblemI(Scene):
+    def construct(self):
+        title = Text('PROP. I - PROBLEM', color=BLACK)
+        text = Text('On a given finite right line (AB) to construct an equilateral triangle.', color=BLACK, slant=ITALIC).scale(0.55)
+        VGroup(title, text).arrange(DOWN, buff=1)
+        self.play(Write(title))
+        self.play(Write(text))
+
+        self.wait(3)
+
+class SolI(Scene):
     def construct(self):
         lineAB = Line(color=BLACK)
 
