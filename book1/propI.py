@@ -14,6 +14,10 @@ class ProblemI(Scene):
 
 class SolI(Scene):
     def construct(self):
+        solText1 = Text('Part 1 of the solution', color=BLACK).scale(0.55)
+        solText2 = Text('Part 2 of the solution', color=BLACK).scale(0.55)
+        text_group = VGroup(solText1, solText2)
+
         lineAB = Line(color=BLACK)
 
         pointA = lineAB.get_start()
@@ -31,6 +35,8 @@ class SolI(Scene):
 
         pointC = lineCA.get_end()
         pointC_text = Text('C', size=0.75, color=BLACK).next_to(pointC, UP)
+
+        animationGroup = VGroup(lineAB, pointA_text, pointB_text, circleBCD, pointD_text, circleACE, pointE_text, lineCA, lineCB, pointC_text).shift(3*RIGHT)
 
         self.wait(1)
 
