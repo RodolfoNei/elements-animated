@@ -14,52 +14,59 @@ class ProblemI(Scene):
 
 class SolI(Scene):
     def construct(self):
-        solText1 = Text('Part 1 of the solution', color=BLACK).scale(0.55)
-        solText2 = Text('Part 2 of the solution', color=BLACK).scale(0.55)
-        text_group = VGroup(solText1, solText2)
+        solText1 = Text('With A as centre, and AB as radius, describe the circle BCD')
+        solText2 = Text('With B as centre, and BA as radius, describe the circle ACE,\ncutting the former circle in C.')
+        solText3 = Text('Join CA, CB')
+        solText4 = Text('Then ABC is the equilateral triangle required.')
+        text_group = VGroup(solText1, solText2, solText3, solText4).arrange(direction=DOWN, aligned_edge=LEFT).shift(3.2*LEFT).scale(0.35).set_color(BLACK)
 
-        lineAB = Line(color=BLACK)
+        lineAB = Line()
 
         pointA = lineAB.get_start()
-        pointA_text = Text('A', size=0.75, color=BLACK).next_to(pointA, LEFT)
+        pointA_text = Text('A', size=0.75).next_to(pointA, LEFT)
 
         pointB = lineAB.get_end()
-        pointB_text = Text('B', size=0.75, color=BLACK).next_to(pointB, RIGHT)
+        pointB_text = Text('B', size=0.75).next_to(pointB, RIGHT)
 
-        circleBCD = Circle(radius=lineAB.width, color=BLACK).move_arc_center_to(pointA)
-        pointD_text = Text('D', size=0.75, color=BLACK).next_to(circleBCD, LEFT)
-        circleACE = Circle(radius=lineAB.width, color=BLACK).move_arc_center_to(pointB)
-        pointE_text = Text('E', size=0.75, color=BLACK).next_to(circleACE, RIGHT)
-        lineCA = Line(pointA, circleBCD.point_at_angle(60*DEGREES), color=BLACK)
-        lineCB = Line(pointB, circleACE.point_at_angle(120*DEGREES), color=BLACK)
+        circleBCD = Circle(radius=lineAB.width).move_arc_center_to(pointA)
+        pointD_text = Text('D', size=0.75).next_to(circleBCD, LEFT)
+        circleACE = Circle(radius=lineAB.width).move_arc_center_to(pointB)
+        pointE_text = Text('E', size=0.75).next_to(circleACE, RIGHT)
+        lineCA = Line(pointA, circleBCD.point_at_angle(60*DEGREES))
+        lineCB = Line(pointB, circleACE.point_at_angle(120*DEGREES))
 
         pointC = lineCA.get_end()
-        pointC_text = Text('C', size=0.75, color=BLACK).next_to(pointC, UP)
+        pointC_text = Text('C', size=0.75).next_to(pointC, UP)
 
-        animationGroup = VGroup(lineAB, pointA_text, pointB_text, circleBCD, pointD_text, circleACE, pointE_text, lineCA, lineCB, pointC_text).shift(3*RIGHT)
+        animationGroup = VGroup(lineAB, pointA_text, pointB_text, circleBCD, pointD_text, circleACE, pointE_text, lineCA, lineCB, pointC_text).shift(3.8*RIGHT).scale(0.85).set_color(BLACK)
 
         self.wait(1)
-
+        
         self.play(Write(pointA_text), Write(pointB_text))
         self.play(Create(lineAB))
 
+        self.play(Write(solText1))
         self.wait(1)
-
         self.play(Create(circleBCD))
         self.play(Write(pointC_text))
         self.play(Write(pointD_text))
 
         self.wait(1)
 
+        self.play(Write(solText2))
+        self.wait(1)
         self.play(Create(circleACE))
         self.play(Write(pointE_text))
 
         self.wait(1)
 
+        self.play(Write(solText3))
+        self.wait(1)
         self.play(Create(lineCA))
 
         self.wait(1)
 
         self.play(Create(lineCB))
 
+        self.play(Write(solText4))
         self.wait(1)
