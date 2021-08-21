@@ -2,10 +2,10 @@
 from manim import *
 config.background_color = WHITE
 
-solText1 = Text('With A as centre, and AB as radius,\ndescribe the circle BCD')
-solText2 = Text('With B as centre, and BA as radius,\ndescribe the circle ACE,\ncutting the former circle in C.')
-solText3 = Text('Join CA, CB')
-solText4 = Text('Then ABC is the equilateral triangle required.')
+solText1 = MarkupText('With <i>A</i> as centre, and <i>AB</i> as radius,\ndescribe the circle <i>BCD</i>')
+solText2 = MarkupText('With <i>B</i> as centre, and <i>BA</i> as radius,\ndescribe the circle <i>ACE</i>,\ncutting the former circle in <i>C</i>')
+solText3 = MarkupText('Join <i>CA</i>, <i>CB</i>')
+solText4 = MarkupText('Then <i>ABC is the equilateral triangle required</i>')
 text_group = VGroup(solText1, solText2, solText3, solText4).arrange(direction=DOWN, aligned_edge=LEFT, buff=1).shift(3*LEFT).scale(0.5).set_color(BLACK)
 
 lineAB = Line()
@@ -32,7 +32,7 @@ fullElemGroup = VGroup(pointA_text, pointB_text, circleBCD, pointD_text, circleA
 class ProblemI(Scene):
     def construct(self):
         title = Text('PROP. I - PROBLEM', color=BLACK)
-        text = Text('On a given finite right line (AB) to construct an equilateral triangle.', color=BLACK, slant=ITALIC).scale(0.55)
+        text = Text('On a given finite right line (AB) to construct an equilateral triangle', color=BLACK, slant=ITALIC).scale(0.55)
         VGroup(title, text).arrange(DOWN, buff=1)
         self.play(Write(title))
         self.play(Write(text))
