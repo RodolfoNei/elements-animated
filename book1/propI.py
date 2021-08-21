@@ -6,7 +6,15 @@ solText1 = MarkupText('With <i>A</i> as centre, and <i>AB</i> as radius,\ndescri
 solText2 = MarkupText('With <i>B</i> as centre, and <i>BA</i> as radius,\ndescribe the circle <i>ACE</i>,\ncutting the former circle in <i>C</i>')
 solText3 = MarkupText('Join <i>CA</i>, <i>CB</i>')
 solText4 = MarkupText('Then <i>ABC is the equilateral triangle required</i>')
-text_group = VGroup(solText1, solText2, solText3, solText4).arrange(direction=DOWN, aligned_edge=LEFT, buff=1).shift(3*LEFT).scale(0.5).set_color(BLACK)
+VGroup(solText1, solText2, solText3, solText4).arrange(direction=DOWN, aligned_edge=LEFT, buff=1).shift(3*LEFT).scale(0.5).set_color(BLACK)
+
+demText1 = MarkupText('Because <i>A</i> is the centre of the circle <i>BCD</i>,\n<i>AC</i> is equal to <i>AB</i>')
+demText2 = MarkupText('Again, because <i>B</i> is the centre of the circle <i>ACE</i>,\n<i>BC</i> is equal to <i>BA</i>')
+demText3 = MarkupText('Hence we have proved <i>AC</i> = <i>AB</i>, and <i>BC</i> = <i>AB</i>')
+demText4 = MarkupText('But things which are equal to the same are\nequal to one another; therefore <i>AC</i> is equal\nto <i>BC</i>')
+demText5 = MarkupText('Therefore the three lines <i>AB</i>, <i>BC</i>, <i>CA</i>\nare equal to one another')
+demText6 = MarkupText('Hence the triangle <i>ABC</i> is equilateral;\nand it is described on the given line <i>AB</i>,\n<i>which was required to be done</i>')
+VGroup(demText1, demText2, demText3, demText4, demText5, demText6).arrange(direction=DOWN, aligned_edge=LEFT, buff=1).shift(3.5*LEFT).scale(0.4).set_color(BLACK)
 
 lineAB = Line()
 
@@ -66,10 +74,17 @@ class SolI(Scene):
         self.play(Create(lineCA))
         self.play(Create(lineCB))
 
-        self.play(Write(solText4), triangleGroup.animate.set_color('#800080'))
+        self.play(Write(solText4), triangleGroup.animate.set_color(RED))
         self.wait(1)
 
 class DemI(Scene):
     def construct(self):
         self.add(fullElemGroup)
+
+        self.play(Write(demText1))
+        self.play(Write(demText2))
+        self.play(Write(demText3))
+        self.play(Write(demText4))
+        self.play(Write(demText5))
+        self.play(Write(demText6))
         self.wait(3)
