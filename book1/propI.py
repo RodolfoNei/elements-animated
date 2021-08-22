@@ -37,6 +37,28 @@ pointC_text = Text('C', size=0.75).next_to(pointC, UP)
 triangleGroup = VGroup(lineCA, lineAB, lineCB)
 fullElemGroup = VGroup(pointA_text, pointB_text, circleBCD, pointD_text, circleACE, pointE_text, pointC_text, triangleGroup).shift(3.5*RIGHT).scale(0.85).set_color(BLACK)
 
+class IntroI(Scene):
+    def construct(self):
+        title1 = Text('THE ELEMENTS OF EUCLID -')
+        title2 = Text('ANIMATED')
+        VGroup(title1, title2).arrange(DOWN, buff=1).set_color(BLACK)
+        self.play(Write(title1))
+        self.play(Write(title2))
+
+        self.wait(4)
+
+class SubIntroI(Scene):
+    def construct(self):
+        text1 = Text('BOOK I')
+        text2_1 = Text('THEORY OF ANGLES, TRIANGLES, PARALLEL LINES, AND').scale(0.45)
+        text2_2 = Text('PARALLELOGRAMS').scale(0.45)
+        VGroup(text1, text2_1, text2_2).arrange(DOWN, buff=0.5).set_color(BLACK)
+        self.play(Write(text1))
+        self.play(Write(text2_1))
+        self.play(Write(text2_2))
+
+        self.wait(4)
+
 class ProblemI(Scene):
     def construct(self):
         title = Text('PROP. I - PROBLEM', color=BLACK)
@@ -45,7 +67,7 @@ class ProblemI(Scene):
         self.play(Write(title))
         self.play(Write(text))
 
-        self.wait(3)
+        self.wait(4)
 
 class SolI(Scene):
     def construct(self):
@@ -75,7 +97,7 @@ class SolI(Scene):
         self.play(Create(lineCB))
 
         self.play(Write(solText4))
-        self.wait(1)
+        self.wait(8)
 
 class DemI(Scene):
     def construct(self):
@@ -99,4 +121,14 @@ class DemI(Scene):
         self.play(Write(demText5), triangleGroup.animate.set_color(RED))
         self.wait(1)
         self.play(Write(demText6))
-        self.wait(3)
+        self.wait(8)
+
+class EndI(Scene):
+    def construct(self):
+        title = Text('Next: BOOK I - PROP. II')
+        text = Text('Thank you for watching :)').scale(0.55)
+        VGroup(title, text).arrange(DOWN, buff=1).set_color(BLACK)
+        self.play(Write(title))
+        self.play(Write(text))
+
+        self.wait(8)
