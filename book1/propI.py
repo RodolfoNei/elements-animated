@@ -81,26 +81,22 @@ class DemI(Scene):
     def construct(self):
         self.add(fullElemGroup)
 
-        self.play(Write(demText1))
-        self.play(VGroup(lineAB, lineCA).animate.set_color(RED))
-        self.wait(1)
+        self.play(Write(demText1), VGroup(lineAB, lineCA).animate.set_color(RED))
+        self.wait(2)
         self.play(VGroup(lineAB, lineCA).animate.set_color(BLACK))
 
-        self.play(Write(demText2))
-        self.play(VGroup(lineAB, lineCB).animate.set_color(RED))
-        self.wait(1)
+        self.play(Write(demText2), VGroup(lineAB, lineCB).animate.set_color(RED))
+        self.wait(2)
         self.play(VGroup(lineAB, lineCB).animate.set_color(BLACK))
 
         self.play(Write(demText3))
-
-        self.play(Write(demText4))
-        self.wait(2)
-        self.play(VGroup(lineCA, lineCB).animate.set_color(RED))
         self.wait(1)
+        self.play(Write(demText4), VGroup(lineCA, lineCB).animate.set_color(RED))
+        self.wait(4)
         self.play(VGroup(lineCA, lineCB).animate.set_color(BLACK))
 
 
-        self.play(Write(demText5))
-        self.play(triangleGroup.animate.set_color(RED))
+        self.play(Write(demText5), triangleGroup.animate.set_color(RED))
+        self.wait(1)
         self.play(Write(demText6))
         self.wait(3)
