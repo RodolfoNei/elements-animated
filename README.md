@@ -1,6 +1,12 @@
 # The Elements of Euclid - Animated
 
-Animated version of the literal text contained in The Elements of Euclid books
+Animated version of the propositions contained in The Elements of Euclid books
+
+---
+
+### [Manim Installation Guide and Docs](https://docs.manim.community/en/stable/installation.html)
+
+---
 
 Text taken from [Project Gutenberg’s First Six Books of the Elements of Euclid,
 by John Casey](https://www.gutenberg.org/ebooks/21076)
