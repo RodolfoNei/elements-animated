@@ -1,13 +1,14 @@
-# import sys
 from manim import *
 config.background_color = WHITE
 
+# Solution text style grouped
 solText1 = MarkupText('With <i>A</i> as centre, and <i>AB</i> as radius,\ndescribe the circle <i>BCD</i>')
 solText2 = MarkupText('With <i>B</i> as centre, and <i>BA</i> as radius,\ndescribe the circle <i>ACE</i>,\ncutting the former circle in <i>C</i>')
 solText3 = MarkupText('Join <i>CA</i>, <i>CB</i>')
 solText4 = MarkupText('Then <i>ABC is the equilateral triangle required</i>')
 VGroup(solText1, solText2, solText3, solText4).arrange(direction=DOWN, aligned_edge=LEFT, buff=1).shift(3*LEFT).scale(0.5).set_color(BLACK)
 
+# Demonstration text style group
 demText1 = MarkupText('Because <i>A</i> is the centre of the circle <i>BCD</i>,\n<i>AC</i> is equal to <i>AB</i>')
 demText2 = MarkupText('Again, because <i>B</i> is the centre of the circle <i>ACE</i>,\n<i>BC</i> is equal to <i>BA</i>')
 demText3 = MarkupText('Hence we have proved <i>AC</i> = <i>AB</i>, and <i>BC</i> = <i>AB</i>')
@@ -16,6 +17,7 @@ demText5 = MarkupText('Therefore the three lines <i>AB</i>, <i>BC</i>, <i>CA</i>
 demText6 = MarkupText('Hence the triangle <i>ABC</i> is equilateral;\nand it is described on the given line <i>AB</i>,\n<i>which was required to be done</i>')
 VGroup(demText1, demText2, demText3, demText4, demText5, demText6).arrange(direction=DOWN, aligned_edge=LEFT, buff=1).shift(3.5*LEFT).scale(0.4).set_color(BLACK)
 
+# Elements components definitions
 lineAB = Line()
 
 pointA = lineAB.get_start()
@@ -35,7 +37,21 @@ pointC = lineCA.get_start()
 pointC_text = Text('C', size=0.75).next_to(pointC, UP)
 
 triangleGroup = VGroup(lineCA, lineAB, lineCB)
-fullElemGroup = VGroup(pointA_text, pointB_text, circleBCD, pointD_text, circleACE, pointE_text, pointC_text, triangleGroup).shift(3.5*RIGHT).scale(0.85).set_color(BLACK)
+# fullElemGroup = VGroup(pointA_text, pointB_text, circleBCD, pointD_text, circleACE, pointE_text, pointC_text, triangleGroup).shift(3.5*RIGHT).scale(0.85).set_color(BLACK)
+sampleFullElemGroup = VGroup(pointA_text, pointB_text, circleBCD, pointD_text, circleACE, pointE_text, pointC_text, triangleGroup).set_color(BLACK)
+
+class SampleI(Scene):
+    def construct(self):
+        self.play(Write(pointA_text), Write(pointB_text))
+        self.play(Create(lineAB))
+        self.play(Create(circleBCD))
+        self.play(Write(pointC_text))
+        self.play(Write(pointD_text))
+        self.play(Create(circleACE))
+        self.play(Write(pointE_text))
+        self.play(Create(lineCA))
+        self.play(Create(lineCB))
+        self.wait(3)
 
 class IntroI(Scene):
     def construct(self):
@@ -50,9 +66,9 @@ class IntroI(Scene):
 class SubIntroI(Scene):
     def construct(self):
         text1 = Text('BOOK I')
-        text2_1 = Text('THEORY OF ANGLES, TRIANGLES, PARALLEL LINES, AND').scale(0.45)
+        text2_1 = Text('THEORY OF ANGLES, TRIANGLES, PARALLELLINES, AND').scale(0.45)
         text2_2 = Text('PARALLELOGRAMS').scale(0.45)
-        VGroup(text1, text2_1, text2_2).arrange(DOWN, buff=0.5).set_color(BLACK)
+        VGroup(text1, text2_1, text2_2).arrange(DOWN, buff=0.25).set_color(BLACK)
         self.play(Write(text1))
         self.play(Write(text2_1))
         self.play(Write(text2_2))
