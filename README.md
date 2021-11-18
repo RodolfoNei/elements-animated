@@ -2,6 +2,8 @@
 
 Animated version of the propositions contained in The Elements of Euclid books
 
+https://user-images.githubusercontent.com/48540198/142370872-21e62cc1-7ff6-4922-b9a5-b5aa004eeb6a.mp4
+
 ---
 
 ### [Manim Installation Guide and Docs](https://docs.manim.community/en/stable/installation.html)
